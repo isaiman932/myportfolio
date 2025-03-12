@@ -1,0 +1,75 @@
+/* Styling asas */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #ff758c, #ff7eb3, #feb47b);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Container utama */
+.container {
+    text-align: center;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 35px;
+    border-radius: 20px;
+    box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.25);
+    max-width: 800px;
+    width: 90%;
+    position: relative;
+    transition: 0.3s;
+}
+
+.container:hover {
+    transform: scale(1.02);
+}
+
+/* Grid untuk gambar */
+.project-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+    gap: 15px;
+    margin-top: 20px;
+}
+
+/* Animasi fade-in untuk gambar */
+.project-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.2);
+    opacity: 0;  /* Bermula dengan 0 */
+    transform: translateY(20px); /* Naik ke atas */
+    animation: fadeInSlow 1.5s ease-in-out forwards;
+}
+
+/* Animasi fade-in */
+@keyframes fadeInSlow {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Buat setiap gambar muncul dengan delay */
+.project-image:nth-child(1) { animation-delay: 0.2s; }
+.project-image:nth-child(2) { animation-delay: 0.4s; }
+.project-image:nth-child(3) { animation-delay: 0.6s; }
+.project-image:nth-child(4) { animation-delay: 0.8s; }
+.project-image:nth-child(5) { animation-delay: 1.0s; }
+.project-image:nth-child(6) { animation-delay: 1.2s; }
+.project-image:nth-child(7) { animation-delay: 1.4s; }
+.project-image:nth-child(8) { animation-delay: 1.6s; }
+.project-image:nth-child(9) { animation-delay: 1.8s; }
+.project-image:nth-child(10) { animation-delay: 2.0s; }

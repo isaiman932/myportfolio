@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photography Gallery</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            text-align: center;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+        }
+        .slider {
+            position: relative;
+            max-width: 100%;
+            overflow: hidden;
+        }
+        .slider img {
+            width: 100%;
+            display: none;
+        }
+        .slider img.active {
+            display: block;
+        }
+        .nav-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+        }
+        .prev {
+            left: 10px;
+        }
+        .next {
+            right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">📸 NATURE PHOTOGRAPHY</h1>
+        <p class="description">These are some photos for my photography project with a nature theme such as rivers, beaches, plants and animals.</p>
+        <div class="slider">
+            <button class="nav-btn prev">&#10094;</button>
+            <img src="img2/1.jpg" alt="Gambar Projek 1" class="active">
+            <img src="img2/2.jpg" alt="Gambar Projek 2">
+            <img src="img2/3.jpg" alt="Gambar Projek 3">
+            <img src="img2/4.jpg" alt="Gambar Projek 4">
+            <img src="img2/5.jpg" alt="Gambar Projek 5">
+            <img src="img2/6.jpg" alt="Gambar Projek 6">
+            <img src="img2/7.jpg" alt="Gambar Projek 7">
+            <img src="img2/8.jpg" alt="Gambar Projek 8">
+            <img src="img2/9.jpg" alt="Gambar Projek 9">
+            <img src="img2/10.jpg" alt="Gambar Projek 10">
+            <button class="nav-btn next">&#10095;</button>
+        </div>
+        <a href="index.html">
+            <button style="margin-top: 20px; padding: 10px 20px; background-color: #4CAF50; color: white; border: none; border-radius: 5px; font-size: 16px; cursor: pointer; transition: 0.3s;">
+                Back
+            </button>
+        </a>
+    </div>
+    <script>
+        $(document).ready(function() {
+            let currentIndex = 0;
+            let images = $('.slider img');
+            let totalImages = images.length;
+            
+            function showImage(index) {
+                images.removeClass('active');
+                images.eq(index).addClass('active');
+            }
+            
+            $('.next').click(function() {
+                currentIndex = (currentIndex + 1) % totalImages;
+                showImage(currentIndex);
+            });
+            
+            $('.prev').click(function() {
+                currentIndex = (currentIndex - 1 + totalImages) % totalImages;
+                showImage(currentIndex);
+            });
+            
+            function autoSlide() {
+                currentIndex = (currentIndex + 1) % totalImages;
+                showImage(currentIndex);
+            }
+            
+            setInterval(autoSlide, 3000); // Auto-slide setiap 3 saat
+        });
+    </script>
+</body>
+</html>
+
